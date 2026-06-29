@@ -1,0 +1,613 @@
+/* ──────────────────────────────────────────────
+   Mazout X1 case study page styles
+   Inherits global tokens (--bg, --ink, --accent,
+   --muted, --line, --max, --pad, --radius) from
+   ../../styles.css. Built on the shared case-study
+   system (same as the Waysorted page) so every
+   section reads as one visual language.
+   ────────────────────────────────────────────── */
+
+.cs {
+  --cs-gap: clamp(64px, 9vw, 130px);
+}
+
+/* shared inner width */
+.cs-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+
+/* generic section rhythm */
+.cs-section {
+  padding-block: var(--cs-gap);
+  border-bottom: 1px solid var(--line);
+}
+
+.cs-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+
+.cs h2 {
+  font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 20ch;
+}
+
+/* breathing room between a section heading and its body copy */
+.cs h2 + p { margin-top: clamp(20px, 2.2vw, 30px); }
+
+.cs p {
+  max-width: 600px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.cs em {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* a lead paragraph, slightly larger, full ink, for section openers */
+.cs-lead {
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 1.1em;
+}
+
+/* inline highlight, theme-aware */
+.cs mark {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--ink);
+  padding: 0.04em 0.18em;
+  border-radius: 4px;
+}
+.cs strong { color: var(--ink); font-weight: 600; }
+
+/* image placeholders ─────────────────────────── */
+.ph {
+  position: relative;
+  width: 100%;
+  background: #f2f2f2;
+  color: #9a9a9a;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  overflow: hidden;
+}
+html[data-theme="dark"] .ph,
+:root:not([data-theme="light"]) .ph {
+  /* keep the spec'd light-gray boxes regardless of theme */
+  background: #f2f2f2;
+  color: #9a9a9a;
+}
+.ph img,
+.ph video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ph.is-empty::after {
+  content: attr(data-label);
+}
+.ph-16x9  { aspect-ratio: 16 / 9; }
+.ph-4x3   { aspect-ratio: 4 / 3; }
+.ph-phone { aspect-ratio: 9 / 19.5; }
+
+/* ── Hero ─────────────────────────────────────── */
+.cs-hero {
+  padding-top: clamp(130px, 17vh, 200px);
+  padding-bottom: var(--cs-gap);
+  border-bottom: 1px solid var(--line);
+}
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: clamp(34px, 6vw, 64px);
+  transition: color 0.24s ease;
+}
+.cs-back:hover { color: var(--accent); }
+
+.cs-hero-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.cs-hero h1 {
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  max-width: 18ch;
+}
+.cs-hero-sub {
+  margin-top: 26px;
+  max-width: 680px;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+.cs-hero-media {
+  margin-top: clamp(44px, 6vw, 72px);
+}
+
+/* ── Context tags (client · medium) ───────────── */
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.cs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  transition: border-color 0.24s ease, color 0.24s ease;
+}
+.cs-tag:hover { border-color: var(--accent); }
+.cs-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.cs-tag b { font-weight: 600; }
+.cs-tag span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+
+/* ── TL;DR fact-sheet ─────────────────────────── */
+.tldr-sheet {
+  background: var(--placeholder);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 56px);
+}
+.tldr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+.tldr-cell {
+  padding-left: clamp(20px, 3vw, 44px);
+  border-left: 1px solid var(--line);
+}
+.tldr-cell:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+.tldr-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.tldr-value {
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  line-height: 1.45;
+  color: var(--ink) !important;
+  font-weight: 450;
+  margin: 0;
+  max-width: none;
+}
+.tldr-callout {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--line);
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: none;
+}
+
+/* ── Two-column (text + image) ────────────────── */
+.cs-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 6vw, 90px);
+  align-items: center;
+}
+/* problem split leans text-heavy: ~55 / 45 */
+.cs-split--wide {
+  grid-template-columns: 55fr 45fr;
+}
+.cs-split-text h2 { margin-bottom: 26px; }
+.cs-split-text .cs-eyebrow + .cs-lead { margin-top: 4px; }
+
+/* ── Where I started · centered copy, big faded accent ─── */
+.cs-origin {
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+.cs-origin .cs-eyebrow {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  text-align: left;
+}
+.cs-origin-body {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cs-origin-body p {
+  max-width: none;
+  margin: 0 0 1.2em;
+  text-align: left;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.86;
+}
+.cs-origin-body p:last-child { margin-bottom: 0; }
+.cs-origin-body em { color: var(--accent); }
+/* oversized, low-opacity typographic accent behind the copy */
+.bignum {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: clamp(120px, 24vw, 360px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Decision cards ───────────────────────────── */
+.decisions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.decision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--placeholder) 45%, transparent);
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.decision-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+/* large faded index sitting top-left behind the title */
+.decision-bignum {
+  position: absolute;
+  top: -0.18em;
+  left: 0.12em;
+  z-index: 0;
+  font-size: clamp(90px, 8vw, 140px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+}
+.decision-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: clamp(40px, 5vw, 64px) 0 12px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+.decision-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  margin-bottom: clamp(22px, 2.5vw, 28px);
+}
+.decision-card .ph {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+/* ── Flow strip (horizontal scroll, phone-format) ─── */
+.flow-section { overflow: hidden; }
+.flow-intro {
+  margin-top: 20px;
+  max-width: 560px;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.55;
+}
+.flow-strip {
+  display: flex;
+  gap: clamp(18px, 2.4vw, 32px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  margin-top: clamp(36px, 4vw, 52px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.flow-strip::-webkit-scrollbar { display: none; }
+.flow-step {
+  flex: 0 0 auto;
+  width: clamp(200px, 24vw, 264px);
+  scroll-snap-align: start;
+}
+.flow-step .ph {
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+.flow-step span {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.flow-step .flow-step-num { color: var(--accent); }
+/* scroll hint */
+.flow-hint {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: clamp(24px, 3vw, 36px);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.flow-hint-line {
+  width: 44px;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.flow-hint-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--accent);
+  animation: flow-hint-slide 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes flow-hint-slide {
+  0%   { left: -40%; }
+  100% { left: 110%; }
+}
+.flow-caption {
+  margin-top: clamp(28px, 3vw, 40px);
+  max-width: 760px;
+}
+
+/* ── Beyond the App · website carousel ────────── */
+/* Sits a touch narrower than full section width so it reads
+   as a focused, swipeable gallery rather than a full-bleed band. */
+.web-carousel {
+  max-width: 1040px;
+  margin: clamp(36px, 4.5vw, 60px) auto 0;
+}
+.web-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.web-track::-webkit-scrollbar { display: none; }
+.web-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  border-radius: 0;       /* the track holds the rounded corners */
+}
+.web-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: clamp(18px, 2.2vw, 26px);
+}
+.web-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.web-dot:hover { opacity: 0.7; }
+.web-dot.is-active {
+  background: var(--accent);
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* ── Outcome statement + in-system testimonial ── */
+.cs-statement .cs-lead { max-width: 760px; }
+.cs-quote {
+  margin-top: clamp(40px, 5vw, 64px);
+  padding: clamp(28px, 3.5vw, 46px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--placeholder);
+}
+.cs-quote blockquote {
+  margin: 0;
+  max-width: 22ch;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cs-quote blockquote em { color: var(--accent); font-style: italic; }
+.quote-by {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(26px, 3vw, 38px);
+}
+.quote-avatar {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+.quote-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.quote-by strong { display: block; font-weight: 600; font-size: 0.98rem; color: var(--ink); }
+.quote-role {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Reflection · lessons, clear hierarchy ────── */
+.reflect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.reflect-lesson {
+  padding-top: clamp(18px, 2.4vw, 26px);
+  border-top: 1px solid var(--accent);
+}
+.reflect-tag {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.reflect-lesson p { max-width: none; }
+
+/* ── Next teaser card ─────────────────────────── */
+.next-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.24s ease, transform 0.24s ease;
+}
+.next-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.next-thumb {
+  flex: 0 0 auto;
+  width: clamp(120px, 16vw, 200px);
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+}
+.next-card-body { flex: 1 1 auto; min-width: 0; }
+.next-card .next-kicker {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.next-card strong { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.01em; }
+.next-card .next-arrow { flex: 0 0 auto; margin-left: auto; font-size: 1.6rem; color: var(--accent); }
+
+/* ── Scroll reveal ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.33, 0, 0.67, 1),
+              transform 0.8s cubic-bezier(0.33, 0, 0.67, 1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .flow-hint-line::after { animation: none; }
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 860px) {
+  .tldr-grid { grid-template-columns: 1fr; gap: 0; }
+  .tldr-cell {
+    padding-left: 0;
+    border-left: none;
+    padding-block: clamp(20px, 4vw, 28px);
+    border-top: 1px solid var(--line);
+  }
+  .tldr-cell:first-child { padding-top: 0; border-top: none; }
+  .cs-split,
+  .cs-split--wide { grid-template-columns: 1fr; gap: 32px; }
+  .cs-split-media { order: -1; }
+  .decisions-grid { grid-template-columns: 1fr; }
+  .reflect-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 560px) {
+  .flow-step { width: 72vw; }
+  .next-card { flex-wrap: wrap; }
+  .next-thumb { width: 100%; aspect-ratio: 16 / 9; order: -1; }
+}

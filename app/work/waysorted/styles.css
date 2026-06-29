@@ -1,0 +1,793 @@
+/* ──────────────────────────────────────────────
+   Waysorted — case study page styles
+   Inherits global tokens (--bg, --ink, --accent,
+   --muted, --line, --max, --pad, --radius) from
+   ../../styles.css. Shares the case-study system
+   established on the Mazout page, with a few
+   Waysorted-specific extensions (fact-sheet TL;DR,
+   dark "spotlight" sections, stat grid, program tags).
+   ────────────────────────────────────────────── */
+
+.cs {
+  --cs-gap: clamp(64px, 9vw, 130px);
+}
+
+/* shared inner width */
+.cs-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+
+/* generic section rhythm */
+.cs-section {
+  padding-block: var(--cs-gap);
+  border-bottom: 1px solid var(--line);
+}
+
+.cs-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+
+.cs h2 {
+  font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 20ch;
+}
+
+.cs p {
+  max-width: 600px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.cs em {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* punch line: bold the one phrase that matters, no size change */
+.cs p strong,
+.cs-lead strong,
+.cs li strong { color: var(--ink); font-weight: 600; }
+
+/* keyword highlight (Von Restorff: anchor the eye on one idea) */
+.cs mark {
+  background-color: transparent;
+  background-image: linear-gradient(var(--accent-glow), var(--accent-glow));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.02em 0.12em;
+  border-radius: 6px;
+  color: var(--ink);
+}
+
+/* a lead paragraph — slightly larger, full ink — for section openers */
+.cs-lead {
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 1.1em;
+}
+
+/* image placeholders ─────────────────────────── */
+.ph {
+  position: relative;
+  width: 100%;
+  background: #f2f2f2;
+  color: #9a9a9a;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  overflow: hidden;
+}
+html[data-theme="dark"] .ph,
+:root:not([data-theme="light"]) .ph {
+  /* keep the spec'd light-gray boxes regardless of theme */
+  background: #f2f2f2;
+  color: #9a9a9a;
+}
+.ph img,
+.ph video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ph.is-empty::after {
+  content: attr(data-label);
+}
+.ph-16x9 { aspect-ratio: 16 / 9; }
+.ph-4x3  { aspect-ratio: 4 / 3; }
+/* the plugin's true canvas footprint: 1033 × 240 */
+.ph-strip { aspect-ratio: 1033 / 240; }
+
+/* ── Hero ─────────────────────────────────────── */
+.cs-hero {
+  padding-top: clamp(130px, 17vh, 200px);
+  padding-bottom: var(--cs-gap);
+  border-bottom: 1px solid var(--line);
+}
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: clamp(34px, 6vw, 64px);
+  transition: color 0.24s ease;
+}
+.cs-back:hover { color: var(--accent); }
+
+.cs-hero-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.cs-hero h1 {
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  max-width: 18ch;
+}
+.cs-hero-sub {
+  margin-top: 26px;
+  max-width: 680px;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+.cs-hero-media {
+  margin-top: clamp(44px, 6vw, 72px);
+}
+
+/* ── Program tags (Founders.INC · Nvidia Inception) ── */
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.cs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  transition: border-color 0.24s ease, color 0.24s ease;
+}
+.cs-tag:hover { border-color: var(--accent); }
+.cs-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.cs-tag b {
+  font-weight: 600;
+}
+.cs-tag span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+
+/* ── TL;DR fact-sheet ─────────────────────────── */
+.tldr-sheet {
+  background: var(--placeholder);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 56px);
+}
+.tldr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+.tldr-cell {
+  padding-left: clamp(20px, 3vw, 44px);
+  border-left: 1px solid var(--line);
+}
+.tldr-cell:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+.tldr-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.tldr-value {
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  line-height: 1.45;
+  color: var(--ink) !important;
+  font-weight: 450;
+  margin: 0;
+  max-width: none;
+}
+.tldr-callout {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--line);
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: none;
+}
+
+/* ── Two-column (text + image) ────────────────── */
+.cs-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 6vw, 90px);
+  align-items: center;
+}
+/* problem split leans text-heavy: ~55 / 45 */
+.cs-split--wide {
+  grid-template-columns: 55fr 45fr;
+}
+.cs-split-text h2 { margin-bottom: 26px; }
+.cs-split-text .cs-eyebrow + .cs-lead { margin-top: 4px; }
+
+/* ── Where I started · centered, with a "100+" accent ─── */
+.cs-origin {
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+.cs-origin .cs-eyebrow {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  text-align: left;
+}
+.cs-origin-body {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cs-origin-body p {
+  max-width: none;
+  margin: 0 0 1.2em;
+  text-align: left;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.86;
+}
+.cs-origin-body p:last-child { margin-bottom: 0; }
+.cs-origin-body em { color: var(--accent); }
+/* oversized, low-opacity typographic accent behind the copy */
+.bignum {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-size: clamp(220px, 40vw, 560px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Decision cards ───────────────────────────── */
+.decisions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.decision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--placeholder) 45%, transparent);
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.decision-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+/* large faded index sitting top-left behind the title */
+.decision-bignum {
+  position: absolute;
+  top: -0.18em;
+  left: 0.12em;
+  z-index: 0;
+  font-size: clamp(90px, 8vw, 140px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+}
+.decision-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: clamp(40px, 5vw, 64px) 0 12px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+.decision-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  margin-bottom: clamp(22px, 2.5vw, 28px);
+}
+.decision-card .ph {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+/* ── Emphasis surface (theme-aware) ──
+   "In Motion" sits on one shade off the page background —
+   the same device the TL;DR sheet uses — so it reads as a
+   distinct showcase in both light and dark. No hardcoded
+   colours, no gradient. */
+.motion-section {
+  background: var(--placeholder);
+}
+
+/* ── Flow strip (horizontal scroll) ───────────── */
+.flow-section { overflow: hidden; }
+.flow-intro {
+  margin-top: 20px;
+  max-width: 560px;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.55;
+}
+.flow-strip {
+  display: flex;
+  gap: clamp(18px, 2.4vw, 32px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  margin-top: clamp(36px, 4vw, 52px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.flow-strip::-webkit-scrollbar { display: none; }
+.flow-step {
+  flex: 0 0 auto;
+  width: clamp(520px, 72vw, 880px);
+  max-width: 92vw;
+  scroll-snap-align: start;
+}
+.flow-step .ph {
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+.flow-step span {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.flow-step .flow-step-num { color: var(--accent); }
+/* scroll hint */
+.flow-hint {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: clamp(24px, 3vw, 36px);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.flow-hint-line {
+  width: 44px;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.flow-hint-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--accent);
+  animation: flow-hint-slide 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes flow-hint-slide {
+  0%   { left: -40%; }
+  100% { left: 110%; }
+}
+.flow-caption {
+  margin-top: clamp(28px, 3vw, 40px);
+  max-width: 760px;
+}
+
+/* ── In Motion · video ────────────────────────── */
+.motion-label {
+  margin-top: 6px;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.motion-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--placeholder);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+.motion-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── In Motion: Apple-style glass scrubber + mute toggle ── */
+.afp-scrub {
+  position: absolute; left: 50%; bottom: clamp(14px, 3vh, 24px); transform: translateX(-50%) translateY(8px);
+  z-index: 2; display: flex; align-items: center; gap: 14px;
+  width: min(560px, 84%); padding: 9px 16px; border-radius: 100px;
+  background: rgba(18, 18, 22, 0.34);
+  backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.afp-scrub.afp-scrub-visible,
+.afp-scrub:hover,
+.afp-scrub.is-dragging {
+  opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0);
+}
+.afp-scrub-mute {
+  position: relative; flex: 0 0 auto; width: 22px; height: 22px;
+  display: grid; place-items: center; padding: 0; border: none; background: none;
+  color: #fff; cursor: pointer;
+}
+.afp-scrub-mute svg { width: 18px; height: 18px; display: block; }
+.afp-scrub.is-muted .afp-scrub-mute::after {
+  content: ""; position: absolute; left: 1px; right: 1px; top: 50%;
+  height: 2px; border-radius: 2px; background: #fff; transform: rotate(-45deg);
+}
+.afp-scrub-track { position: relative; flex: 1 1 auto; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.26); cursor: pointer; }
+.afp-scrub-track::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; bottom: -12px; }
+.afp-scrub-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0; border-radius: 4px; background: #fff; pointer-events: none; }
+.afp-scrub-knob { position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%); width: 13px; height: 13px; border-radius: 50%; background: #fff; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); pointer-events: none; transition: transform 0.15s ease; }
+.afp-scrub.is-dragging .afp-scrub-knob { transform: translate(-50%, -50%) scale(1.25); }
+
+/* ── Outcome stat grid (2 × 2) ────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 56px);
+  margin-bottom: clamp(48px, 6vw, 80px);
+  max-width: 880px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: clamp(20px, 2.5vw, 28px);
+  border-bottom: 1px solid var(--line);
+}
+.stat-num {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 460;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+/* word-based stats (program names) sit a touch smaller */
+.stat-num--word {
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.01em;
+}
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cs-statement .stat-grid + p {
+  max-width: none;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* Outcome: traction stats (left) + survey panel (right) */
+.outcome-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+.outcome-main .stat-grid { margin-bottom: clamp(36px, 4vw, 56px); }
+
+.outcome-survey {
+  background: var(--placeholder);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(26px, 3vw, 38px);
+}
+.survey-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: clamp(18px, 2.4vw, 26px);
+}
+.survey-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.survey-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: clamp(15px, 2vw, 20px) 0;
+  border-top: 1px solid var(--line);
+}
+.survey-list li:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.survey-num {
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 460;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.survey-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.survey-foot {
+  margin: clamp(18px, 2.4vw, 26px) 0 0;
+  padding-top: clamp(15px, 2vw, 20px);
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: none;
+}
+
+/* Bare floating image (transparent PNG, no box) — used in The Problem */
+.bare-media {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── User interviews: one-liner + collage ── */
+.cs .interviews-line {
+  margin-top: 4px;
+  max-width: 840px;
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+  line-height: 1.16;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.interviews-line em {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: var(--accent);
+}
+/* A single clustered pile of overlapping photos that deals out on scroll. */
+.interview-stack {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 56vw, 720px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.interview-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(200px, 27%, 330px);
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  z-index: var(--z, 1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--placeholder);
+  /* a bg-coloured matte frames each photo so overlaps read as a stack */
+  border: clamp(4px, 0.6vw, 7px) solid var(--bg);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.36),
+              inset 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent);
+  cursor: pointer;
+  /* collapsed start state (all centred), deals out when section reveals */
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.9);
+  opacity: 0;
+  transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              top 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease,
+              opacity 0.5s ease;
+  transition-delay: var(--d, 0s);
+}
+.interview-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reveal.is-visible .interview-card {
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg)) scale(1);
+  opacity: 1;
+}
+.reveal.is-visible .interview-card:hover {
+  transform: translate(-50%, -50%) rotate(0deg) scale(1.07);
+  z-index: 60;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.5),
+              inset 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent);
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interview-card { transition: box-shadow 0.4s ease; }
+}
+
+/* Mobile: drop the pile for a clean horizontal scroll strip */
+@media (max-width: 640px) {
+  .interview-stack {
+    height: auto;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .interview-stack::-webkit-scrollbar { display: none; }
+  .interview-card {
+    position: static;
+    flex: 0 0 78%;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: center;
+  }
+}
+
+/* ── Reflection · two lessons, clear hierarchy ── */
+.reflect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.reflect-lesson {
+  padding-top: clamp(18px, 2.4vw, 26px);
+  border-top: 1px solid var(--accent);
+}
+.reflect-tag {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.reflect-lesson p { max-width: none; }
+
+/* ── Next teaser card ─────────────────────────── */
+.next-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.24s ease, transform 0.24s ease;
+}
+.next-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.next-thumb {
+  flex: 0 0 auto;
+  width: clamp(120px, 16vw, 200px);
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+}
+.next-card-body { flex: 1 1 auto; min-width: 0; }
+.next-card .next-kicker {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.next-card strong { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.01em; }
+.next-card .next-arrow { flex: 0 0 auto; margin-left: auto; font-size: 1.6rem; color: var(--accent); }
+
+/* ── Scroll reveal ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.33, 0, 0.67, 1),
+              transform 0.8s cubic-bezier(0.33, 0, 0.67, 1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .flow-hint-line::after { animation: none; }
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 860px) {
+  .tldr-grid { grid-template-columns: 1fr; gap: 0; }
+  .tldr-cell {
+    padding-left: 0;
+    border-left: none;
+    padding-block: clamp(20px, 4vw, 28px);
+    border-top: 1px solid var(--line);
+  }
+  .tldr-cell:first-child { padding-top: 0; border-top: none; }
+  .cs-split,
+  .cs-split--wide { grid-template-columns: 1fr; gap: 32px; }
+  .cs-split-media { order: -1; }
+  .decisions-grid { grid-template-columns: 1fr; }
+  .reflect-grid { grid-template-columns: 1fr; gap: 32px; }
+  .outcome-grid { grid-template-columns: 1fr; gap: clamp(36px, 6vw, 48px); }
+  .stat-grid { gap: 28px clamp(24px, 5vw, 40px); }
+}
+
+@media (max-width: 560px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .flow-step { width: 86vw; }
+  .next-card { flex-wrap: wrap; }
+  .next-thumb { width: 100%; aspect-ratio: 16 / 9; order: -1; }
+}
