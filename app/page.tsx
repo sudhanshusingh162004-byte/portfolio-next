@@ -294,28 +294,26 @@ export default function HomePage() {
             </div>
             <div className="bento-card bento-impact bento-reveal">
               <span className="bento-card-label">Impact</span>
-              <div className="impact-rows">
-                <div className="impact-row">
-                  <span className="impact-project">Waysorted</span>
-                  <div className="impact-pills">
-                    <span className="impact-pill">600+ users</span>
-                    <span className="impact-pill">79% satisfaction</span>
-                    <span className="impact-pill">64% productivity gain</span>
-                    <span className="impact-pill">93% beta signup</span>
-                  </div>
+              <div className="impact-grid">
+                <div className="impact-stat">
+                  <span className="impact-num">600+</span>
+                  <span className="impact-label">Users at launch</span>
+                  <span className="impact-src">Waysorted</span>
                 </div>
-                <div className="impact-row">
-                  <span className="impact-project">Mazout Electric</span>
-                  <div className="impact-pills">
-                    <span className="impact-pill">First EV powertrain UI in India</span>
-                    <span className="impact-pill">Backed by Founders.INC</span>
-                  </div>
+                <div className="impact-stat">
+                  <span className="impact-num">93%</span>
+                  <span className="impact-label">Signed up for beta</span>
+                  <span className="impact-src">Waysorted</span>
                 </div>
-                <div className="impact-row">
-                  <span className="impact-project">AirPods Pro</span>
-                  <div className="impact-pills">
-                    <span className="impact-pill">Concept film · 8 hours</span>
-                  </div>
+                <div className="impact-stat">
+                  <span className="impact-num">79%</span>
+                  <span className="impact-label">Rated experience 4–5★</span>
+                  <span className="impact-src">Waysorted</span>
+                </div>
+                <div className="impact-stat">
+                  <span className="impact-num">64%</span>
+                  <span className="impact-label">Confirmed productivity gain</span>
+                  <span className="impact-src">Waysorted</span>
                 </div>
               </div>
             </div>
@@ -423,11 +421,11 @@ export default function HomePage() {
         .bento-reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s cubic-bezier(0.33,0,0.67,1),transform 0.7s cubic-bezier(0.33,0,0.67,1); }
         .bento-reveal.is-visible { opacity:1; transform:translateY(0); }
         .bento-impact { display:flex; flex-direction:column; justify-content:space-between; }
-        .impact-rows { display:flex; flex-direction:column; gap:clamp(14px,2vw,20px); margin-top:auto; padding-top:clamp(14px,2vw,20px); }
-        .impact-row { display:flex; flex-direction:column; gap:6px; }
-        .impact-project { font-size:0.75rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
-        .impact-pills { display:flex; flex-wrap:wrap; gap:5px; }
-        .impact-pill { font-size:0.72rem; font-weight:400; color:var(--ink); background:var(--surface-2,rgba(128,128,128,0.1)); border:1px solid var(--line); border-radius:999px; padding:3px 10px; white-space:nowrap; }
+        .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.5vw,28px); margin-top:auto; padding-top:clamp(16px,2vw,24px); }
+        .impact-stat { display:flex; flex-direction:column; gap:4px; }
+        .impact-num { font-size:clamp(2rem,4vw,3rem); font-weight:500; letter-spacing:-0.05em; line-height:1; color:var(--ink); }
+        .impact-label { font-size:0.75rem; color:var(--muted); line-height:1.3; }
+        .impact-src { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:2px; }
       `}</style>
 
       <Script
