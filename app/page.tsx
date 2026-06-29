@@ -293,23 +293,29 @@ export default function HomePage() {
               <a href="mailto:sudhanshusingh162004@gmail.com" className="status-cta">Get in touch →</a>
             </div>
             <div className="bento-card bento-impact bento-reveal">
-              <span className="bento-card-label">By the Numbers</span>
-              <div className="impact-stats">
-                <div className="impact-stat">
-                  <span className="impact-num">600+</span>
-                  <span className="impact-desc">users at launch</span>
+              <span className="bento-card-label">Impact</span>
+              <div className="impact-rows">
+                <div className="impact-row">
+                  <span className="impact-project">Waysorted</span>
+                  <div className="impact-pills">
+                    <span className="impact-pill">600+ users</span>
+                    <span className="impact-pill">79% satisfaction</span>
+                    <span className="impact-pill">64% productivity gain</span>
+                    <span className="impact-pill">93% beta signup</span>
+                  </div>
                 </div>
-                <div className="impact-stat">
-                  <span className="impact-num">F.INC</span>
-                  <span className="impact-desc">Backed by Founders.INC</span>
+                <div className="impact-row">
+                  <span className="impact-project">Mazout Electric</span>
+                  <div className="impact-pills">
+                    <span className="impact-pill">First EV powertrain UI in India</span>
+                    <span className="impact-pill">Backed by Founders.INC</span>
+                  </div>
                 </div>
-                <div className="impact-stat">
-                  <span className="impact-num">79%</span>
-                  <span className="impact-desc">rated 4–5 stars</span>
-                </div>
-                <div className="impact-stat">
-                  <span className="impact-num">93%</span>
-                  <span className="impact-desc">beta signup rate</span>
+                <div className="impact-row">
+                  <span className="impact-project">AirPods Pro</span>
+                  <div className="impact-pills">
+                    <span className="impact-pill">Concept film · 8 hours</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -417,10 +423,11 @@ export default function HomePage() {
         .bento-reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s cubic-bezier(0.33,0,0.67,1),transform 0.7s cubic-bezier(0.33,0,0.67,1); }
         .bento-reveal.is-visible { opacity:1; transform:translateY(0); }
         .bento-impact { display:flex; flex-direction:column; justify-content:space-between; }
-        .impact-stats { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.5vw,28px); margin-top:auto; padding-top:clamp(16px,2vw,24px); }
-        .impact-stat { display:flex; flex-direction:column; gap:5px; }
-        .impact-num { font-size:clamp(1.6rem,3.2vw,2.6rem); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--ink); }
-        .impact-desc { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.11em; color:var(--muted); }
+        .impact-rows { display:flex; flex-direction:column; gap:clamp(14px,2vw,20px); margin-top:auto; padding-top:clamp(14px,2vw,20px); }
+        .impact-row { display:flex; flex-direction:column; gap:6px; }
+        .impact-project { font-size:0.75rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+        .impact-pills { display:flex; flex-wrap:wrap; gap:5px; }
+        .impact-pill { font-size:0.72rem; font-weight:400; color:var(--ink); background:var(--surface-2,rgba(128,128,128,0.1)); border:1px solid var(--line); border-radius:999px; padding:3px 10px; white-space:nowrap; }
       `}</style>
 
       <Script
