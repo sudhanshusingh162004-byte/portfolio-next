@@ -420,12 +420,12 @@ export default function HomePage() {
         @media (max-width:600px) { .bento-hero{flex-direction:column-reverse;gap:12px;align-items:flex-start} .pixel-stage{width:120px;height:128px} .sprite-me{height:128px} .sprite-vader{height:124px} .avatar-shadow{width:72px} }
         .bento-reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s cubic-bezier(0.33,0,0.67,1),transform 0.7s cubic-bezier(0.33,0,0.67,1); }
         .bento-reveal.is-visible { opacity:1; transform:translateY(0); }
-        .bento-impact { display:flex; flex-direction:column; justify-content:space-between; }
-        .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.5vw,28px); margin-top:auto; padding-top:clamp(16px,2vw,24px); }
-        .impact-stat { display:flex; flex-direction:column; gap:4px; }
-        .impact-num { font-size:clamp(2rem,4vw,3rem); font-weight:500; letter-spacing:-0.05em; line-height:1; color:var(--ink); }
-        .impact-label { font-size:0.75rem; color:var(--muted); line-height:1.3; }
-        .impact-src { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:2px; }
+        .bento-impact { display:flex; flex-direction:column; overflow:hidden; }
+        .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.6vw,16px); margin-top:auto; padding-top:clamp(10px,1.4vw,16px); }
+        .impact-stat { display:flex; flex-direction:column; gap:3px; }
+        .impact-num { font-size:clamp(1.4rem,2.6vw,2.1rem); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--ink); }
+        .impact-label { font-size:0.68rem; color:var(--muted); line-height:1.3; }
+        .impact-src { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:1px; }
       `}</style>
 
       <Script
