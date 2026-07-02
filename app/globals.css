@@ -2335,8 +2335,7 @@ html[data-theme="light"] { --np-green: #16a34a; }
     grid-template-columns: 1.8em minmax(0, 1fr) auto 28px;
     padding: 16px 2px;
   }
-  .work-tag,
-  .work-metric {
+  .work-tag {
     display: none;
   }
   .work-arrow {

@@ -426,6 +426,7 @@ export default function HomePage() {
         .impact-num { font-size:clamp(1.4rem,2.6vw,2.1rem); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--ink); }
         .impact-label { font-size:0.68rem; color:var(--muted); line-height:1.3; }
         .impact-src { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:1px; }
+        @media (max-width:620px) { .work-metric { display:none; } }
       `}</style>
 
       <Script
