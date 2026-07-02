@@ -5,10 +5,31 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { BodyDataPage } from '@/components/BodyDataPage'
 
+const SITE_URL = 'https://sudhanshu-s.com'
+const SITE_TITLE = 'Sudhanshu Singh - Interaction Designer'
+const SITE_DESC =
+  'Sudhanshu Singh is an interaction designer with product thinking, designing clean interactive experiences with precise moments of motion.'
+const SITE_OG_IMAGE = '/work/waysorted/assets/hero.png'
+
 export const metadata: Metadata = {
-  title: 'Sudhanshu Singh - Interaction Designer',
-  description:
-    'Sudhanshu Singh is an interaction designer with product thinking, designing clean interactive experiences with precise moments of motion.',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESC,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: SITE_URL,
+    siteName: 'Sudhanshu Singh',
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [{ url: SITE_OG_IMAGE, width: 1920, height: 1080, alt: SITE_TITLE }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [SITE_OG_IMAGE],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -47,6 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="afterInteractive"
         />
         <Script src="https://unpkg.com/split-type" strategy="afterInteractive" />
+        {/* Vercel Web Analytics — dependency-free endpoint served on Vercel */}
+        <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
       </body>
     </html>
   )

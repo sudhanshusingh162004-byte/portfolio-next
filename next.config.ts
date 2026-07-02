@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   // double-splitting SplitType text. Production already runs effects once,
   // so disabling it here just makes dev match production (and the original).
   reactStrictMode: false,
+  // The About page lives on the home route; redirect the legacy /about path
+  // (and any old links pointing at it) instead of serving a 404.
+  async redirects() {
+    return [{ source: '/about', destination: '/', permanent: true }]
+  },
 }
 
 export default nextConfig

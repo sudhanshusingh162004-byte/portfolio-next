@@ -195,7 +195,7 @@ export default function WorkPage() {
               </div>
             </Link>
 
-            <a className="project-card fade-in" href="/work/solace" data-soon>
+            <a className="project-card fade-in" role="link" aria-disabled="true" data-soon>
               <div className="project-media">
                 <div className="media-placeholder"></div>
               </div>
@@ -215,7 +215,7 @@ export default function WorkPage() {
               </div>
             </a>
 
-            <a className="project-card fade-in" href="/work/daylign" data-soon>
+            <a className="project-card fade-in" role="link" aria-disabled="true" data-soon>
               <div className="project-media">
                 <div className="media-placeholder"></div>
               </div>

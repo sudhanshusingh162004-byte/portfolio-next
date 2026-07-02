@@ -290,7 +290,10 @@ export default function HomePage() {
                 <span className="status-badge-text">Open to roles</span>
               </div>
               <p className="status-desc">Available for full-time roles and select freelance work.</p>
-              <a href="mailto:sudhanshusingh162004@gmail.com" className="status-cta">Get in touch →</a>
+              <div className="status-ctas">
+                <a href="mailto:sudhanshusingh162004@gmail.com" className="status-cta">Get in touch →</a>
+                <a href="/assets/Sudhanshu-Singh-Resume.pdf" target="_blank" rel="noopener" className="status-cta">Résumé ↗</a>
+              </div>
             </div>
             <div className="bento-card bento-impact bento-reveal">
               <span className="bento-card-label">Impact</span>
@@ -314,6 +317,16 @@ export default function HomePage() {
                   <span className="impact-num">64%</span>
                   <span className="impact-label">Confirmed productivity gain</span>
                   <span className="impact-src">Waysorted</span>
+                </div>
+                <div className="impact-stat">
+                  <span className="impact-num impact-num--word">First-in-category</span>
+                  <span className="impact-label">EV powertrain app, client-validated</span>
+                  <span className="impact-src">Mazout X1</span>
+                </div>
+                <div className="impact-stat">
+                  <span className="impact-num impact-num--word">Behance</span>
+                  <span className="impact-label">Motion film featured</span>
+                  <span className="impact-src">AirPods Pro Film</span>
                 </div>
               </div>
             </div>
@@ -419,6 +432,7 @@ export default function HomePage() {
         .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,1.6vw,16px); margin-top:auto; padding-top:clamp(10px,1.4vw,16px); }
         .impact-stat { display:flex; flex-direction:column; gap:3px; }
         .impact-num { font-size:clamp(1.4rem,2.6vw,2.1rem); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--ink); }
+        .impact-num--word { font-size:clamp(0.95rem,1.6vw,1.2rem); letter-spacing:-0.01em; }
         .impact-label { font-size:0.68rem; color:var(--muted); line-height:1.3; }
         .impact-src { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:1px; }
       `}</style>

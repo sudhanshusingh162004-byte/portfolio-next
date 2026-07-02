@@ -1739,6 +1739,12 @@ html[data-theme="light"] .theme-toggle .icon-sun  { display: none; }
   max-width: none !important;
 }
 
+.status-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .status-cta {
   font-size: 0.85rem;
   color: var(--accent);
