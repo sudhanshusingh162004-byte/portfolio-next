@@ -345,7 +345,6 @@ export default function HomePage() {
                 <span className="work-index">01</span>
                 <span className="work-name">Waysorted</span>
                 <span className="work-tag">Product Design · Live</span>
-                <span className="work-metric">600+ users</span>
                 <span className="work-year">2025–26</span>
                 <span className="work-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
               </Link>
@@ -355,7 +354,6 @@ export default function HomePage() {
                 <span className="work-index">02</span>
                 <span className="work-name">Mazout Electric</span>
                 <span className="work-tag">Product Design · Client</span>
-                <span className="work-metric">First in India</span>
                 <span className="work-year">2024</span>
                 <span className="work-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
               </Link>
@@ -365,7 +363,6 @@ export default function HomePage() {
                 <span className="work-index">03</span>
                 <span className="work-name">AirPods Pro</span>
                 <span className="work-tag">Motion Design</span>
-                <span className="work-metric">Built in 8h</span>
                 <span className="work-year">2024</span>
                 <span className="work-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
               </Link>
@@ -375,7 +372,6 @@ export default function HomePage() {
                 <span className="work-index">04</span>
                 <span className="work-name">Solace</span>
                 <span className="work-tag">UX · Spline 3D</span>
-                <span className="work-metric"></span>
                 <span className="work-year">2024</span>
                 <span className="work-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
               </a>
@@ -385,7 +381,6 @@ export default function HomePage() {
                 <span className="work-index">05</span>
                 <span className="work-name">Daylign</span>
                 <span className="work-tag">iOS · In Progress</span>
-                <span className="work-metric"></span>
                 <span className="work-year">2025</span>
                 <span className="work-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
               </a>
@@ -426,7 +421,6 @@ export default function HomePage() {
         .impact-num { font-size:clamp(1.4rem,2.6vw,2.1rem); font-weight:500; letter-spacing:-0.04em; line-height:1; color:var(--ink); }
         .impact-label { font-size:0.68rem; color:var(--muted); line-height:1.3; }
         .impact-src { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-top:1px; }
-        @media (max-width:620px) { .work-metric { display:none; } }
       `}</style>
 
       <Script
